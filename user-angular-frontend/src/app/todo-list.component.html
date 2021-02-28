@@ -1,0 +1,32 @@
+
+<div><br><br><h1 style="text-align: center;color: rgb(255, 255, 255);">WELCOME TO OUR PORTAL</h1><br><br></div>
+<div class="todo-content">
+    <h1  class="page-title">Patient Appointment</h1>
+    <div class="todo-create">
+      <form #todoForm="ngForm" (ngSubmit) = "createTodo(todoForm)" novalidate>
+        <label for="name" style="font-size: 25px;">Name</label>
+         &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="title" class="form-control" placeholder="Enter Patient Name" 
+               required
+               name="title" [(ngModel)]="newTodo.title"
+               #title="ngModel" >
+        
+        <div *ngIf="title.errors && title.dirty"
+             class="alert alert-danger">
+            <div [hidden]="!title.errors.required">
+              Enter Your Name
+            </div>
+            
+        </div>
+      </form>
+        
+    </div>
+        
+      
+    <div class="no-todos" *ngIf="todos && todos.length == 0">
+      <p>No Appointment Found..!</p>
+  </div>
+    
+</div>
+<br><br>
+<h1 style="color:black">Note: Once your Name got disappear after clicking Enter.......Then your registration was done successfully</h1>
+<br><br>
